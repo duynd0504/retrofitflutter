@@ -14,11 +14,18 @@ class MyHome extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Expanded(child: ListView.builder(itemCount: viewModel.items.length,
-              itemBuilder: (_, index) {
-            final item = viewModel.items[index];
-            return Text(item.title);
-          }),),
+          Expanded(
+            child: ListView.builder(
+                itemCount: viewModel.items.length,
+                itemBuilder: (_, index) {
+                  final item = viewModel.items[index];
+                  return ListTile(
+                    leading: Image.network(item.url),
+                    title: Text(item.title),
+                    subtitle: Text(item.thumbnailUrl),
+                  );
+                }),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
